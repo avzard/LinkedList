@@ -25,6 +25,37 @@ namespace LinkedList
             }
         }
 
+        internal Node InserAtParticularPosition(int position, int data)
+        {
+            if (position < 1)
+            {
+                Console.WriteLine("Invlid position...");
+            }
+            if (position == 1)
+            {
+                var newNode = new Node(data);
+                newNode.next = this.head;
+                head = newNode;
+            }
+            else
+            {
+                while (position-- != 0)
+                {
+                    if (position == 1)
+                    {
+                        Node node = new Node(data);
+                        node.next = this.head.next;
+                        head.next = node;
+                        break;
+                    }
+                    head = head.next;
+                }
+                if (position != 1)
+                    Console.WriteLine("Position out of range...");
+            }
+            return head;
+        }
+
         // Displays this instance.
         internal void Display()
         {
@@ -39,6 +70,15 @@ namespace LinkedList
                 Console.Write(temp.data + " -> ");
                 temp = temp.next;
             }
+        }
+        internal Node RemoveFirstNode()
+        {
+            if (this.head == null)
+            {
+                return null;
+            }
+            this.head = this.head.next;
+            return this.head;
         }
     }
 }
