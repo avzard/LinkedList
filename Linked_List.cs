@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -24,7 +24,7 @@ namespace LinkedList
                 temp.next = node;
             }
         }
-
+        
         internal Node InserAtParticularPosition(int position, int data)
         {
             if (position < 1)
